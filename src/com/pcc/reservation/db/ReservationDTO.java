@@ -6,25 +6,12 @@ public class ReservationDTO {
 	private int res_num;
 	private int mem_num;
 	private String name;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	private Date res_date;
 	private int res_time;
 	private int res_persons;
 	private int res_table;
 	
 	
-	public int getRes_table() {
-		return res_table;
-	}
-	public void setRes_table(int res_table) {
-		this.res_table = res_table;
-	}
 	public int getRes_num() {
 		return res_num;
 	}
@@ -36,6 +23,12 @@ public class ReservationDTO {
 	}
 	public void setMem_num(int mem_num) {
 		this.mem_num = mem_num;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Date getRes_date() {
 		return res_date;
@@ -55,12 +48,14 @@ public class ReservationDTO {
 	public void setRes_persons(int res_persons) {
 		this.res_persons = res_persons;
 	}
-	@Override
-	public String toString() {
-		return "ReservationDTO [res_num=" + res_num + ", mem_num=" + mem_num + ", name=" + name + ", res_date="
-				+ res_date + ", res_time=" + res_time + ", res_persons=" + res_persons + ", res_table=" + res_table
-				+ "]";
+	public int getRes_table() {
+		return res_table;
 	}
+	public void setRes_table(int res_table) {
+		this.res_table = res_table;
+	}
+	
+	
 	
 	
 }

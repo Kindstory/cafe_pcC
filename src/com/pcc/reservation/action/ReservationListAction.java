@@ -82,7 +82,7 @@ public class ReservationListAction implements Action {
 			}
 		}	
 		
-		int pageCount = (cnt/pageSize)+(cnt%pageSize==0 ? 0:1);
+		int pageCount = (cnt/pageSize)+(cnt%pageSize== 0 ? 0:1);
 		int pageBlock = 5;
 		int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
 		int endPage = startPage+pageBlock-1;

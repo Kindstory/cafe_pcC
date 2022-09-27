@@ -200,8 +200,10 @@ public class ReservationDAO {
 				
 				dto.setRes_num(rs.getInt(1));
 				dto.setMem_num(rs.getInt(2));
-				dto.setRes_date(rs.getDate(3));
-				dto.setRes_persons(rs.getInt(4));
+				dto.setName(rs.getString(3));
+				dto.setRes_date(rs.getDate(4));
+				dto.setRes_time(rs.getInt(5));
+				dto.setRes_persons(rs.getInt(6));
 
 				reservationList.add(dto);
 				
@@ -397,7 +399,7 @@ public class ReservationDAO {
 					if(rs.getInt(1)  <= 13 ||  // 예약 가능한 테이블이 2개 이상일 때
 							rs.getInt(1) == 14 && dto.getRes_persons() <5 ) { // 예약 가능한 테이블이 한 개이고 예약인원이 4명 이하일 때
 												
-					sql = "update reservation set res_date=?, res_time=?, res_persons=?, res_table=?) "
+					sql = "update reservations set res_date=?, res_time=?, res_persons=?, res_table=? "
 								+"where res_num = ?";
 					
 					pstmt = con.prepareStatement(sql);
@@ -471,5 +473,27 @@ public class ReservationDAO {
 		}
 		return result;
 	}
+	
+	public void deleteReservation (ReservationDTO dto) {
+        
+ 
+        try {
+        	con = getConnect();
+            String sql = "delete from reservations where res_num = ?";
+            pstmt = con.prepareStatement(sql);
+            // ?에 값을 넣기
+ 
+            pstmt.setInt(1, dto.getRes_num());
+           
+            pstmt.executeUpdate();
+ 
+            con.close();
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+ 
+    }
+
 
 } // DAO 끝
